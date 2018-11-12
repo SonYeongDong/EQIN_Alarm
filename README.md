@@ -87,7 +87,7 @@
 
 -------------------------------------------------------------------
 
-##Pin placement
+## Pin placement
 - control_value_analysis()
 	->
 
@@ -106,11 +106,11 @@
 
 ## Main logic(Algorithm)
 
-'#'include <stdio.h>
-'#'define F_CPU 16000000UL
-'#'include <avr/io.h>
-'#'include <util/delay.h>
-'#'include <avr/interrupt.h>
+#include <stdio.h>
+#define F_CPU 16000000UL
+#include <avr/io.h>
+#include <util/delay.h>
+#include <avr/interrupt.h>
 
 //전역변수 선언
 int in_persent = 0; // 층간소음 정도를 백분율로 계산한 결과
