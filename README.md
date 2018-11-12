@@ -43,18 +43,18 @@
 #### 지역변수
 - 함수별 지역변수는 개발하면서 추가바람!!
 
-- control_value_analysis()
-	->
-
-- lcd_control()
-	->
-
-- led_control()
-	->	
-
-- buzzer_control()
-	->
-
+- control_value_analysis()  
+	->  
+  
+- lcd_control()  
+	->  
+  
+- led_control()  
+	->  	
+  
+- buzzer_control()  
+	->  
+  
 ### 사용함수
 #### control_value_analysis()[손영동, 박하용]
 - GY-61 ADXL335(아날로그 가속도 센서)를 이용하여 지진 및 층간소음 분석 및 검출
