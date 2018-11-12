@@ -88,24 +88,24 @@
 -------------------------------------------------------------------
 
 ## Pin placement
-- control_value_analysis()
-	->
-
-- lcd_control()
-	->
-
-- led_control()
+- control_value_analysis()  
+	->  
+  
+- lcd_control()  
+	->  
+  
+- led_control()  
 	->	
-
-- buzzer_control()
-	->
-
+  
+- buzzer_control()  
+	->  
+  
 !! 추가적인 AVR 포트는 구성 및 buzzer pwm은 추후 상의를 통해 결정할 것임 
 
 -------------------------------------------------------------------
 
 ## Main logic(Algorithm)
-
+```c
 #include <stdio.h>
 #define F_CPU 16000000UL
 #include <avr/io.h>
@@ -134,4 +134,5 @@ int main(void)
 	}
 	return 0;
 }
+```
 - 추가적인 로직은 팀간의 상의를 통해 구성 예정 
