@@ -68,22 +68,22 @@
 #### lcd_control()[박찬영]
 - 평상시, 지진, 층간소음에 따른 lcd 정보 출력
 - int judgment_flag = 0이면 Normal이라는 스트링을 표시하고 층간소음 퍼센트 정도를 int in_persent에서 받아와 표시
-- 	 				 = 1이면 Earthquake이라는 스트링을 표시하고 층간소음 퍼센트 정도를 int in_persent에서 받아와 표시
-- 	 				 = 1이면 두번째 줄에 지진 대피 요령 출력(0.3초씩 글자 한칸씩 왼쪽으로 쉬프트)  
-- 					 = 2이면 Interlayer noise이라는 스트링을 표시하고 순간 층간소음 퍼센트 정도를 int in_persent에서 받아와 int save_persent에 저장후 int save_persent 정보 출력
+- 		    = 1이면 Earthquake이라는 스트링을 표시하고 층간소음 퍼센트 정도를 int in_persent에서 받아와 표시
+- 		    = 1이면 두번째 줄에 지진 대피 요령 출력(0.3초씩 글자 한칸씩 왼쪽으로 쉬프트)  
+- 		    = 2이면 Interlayer noise이라는 스트링을 표시하고 순간 층간소음 퍼센트 정도를 int in_persent에서 받아와 int save_persent에 저장후 int save_persent 정보 출력
 
 #### led_control()[장지원]
 - 평상시, 지진, 층간소음에 따른 led 출력
 - int judgment_flag 값 변동에 따라 한번만 호출되는 함수
 - int judgment_flag = 0이면 평상시로 초록색 led 출력
-- 					 = 1이면 지진으로 빨간색 led 출력
-- 					 = 2이면 층간소음으로 파랑색 led 출력
+- 		    = 1이면 지진으로 빨간색 led 출력
+- 		    = 2이면 층간소음으로 파랑색 led 출력
 
 #### buzzer_control()[손영동, 박찬영]
 - 평상시, 지진, 층간소음에 따른 buzzer 소리 출력 
 - int judgment_flag = 0이면 평상시로 buzzer 소리 출력 안함
-- 					 = 1이면 지진으로 buzzer로 int in_persent값에 따라 pwd으로 소리크기를 조절하여 출력
-- 					 = 2이면 층간소음으로 buzzer로 0.5초간 큰 소리 출력 및 꺼짐 6번 반복(총 3초) 	
+- 		    = 1이면 지진으로 buzzer로 int in_persent값에 따라 pwd으로 소리크기를 조절하여 출력
+- 		    = 2이면 층간소음으로 buzzer로 0.5초간 큰 소리 출력 및 꺼짐 6번 반복(총 3초) 	
 
 -------------------------------------------------------------------
 
