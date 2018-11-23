@@ -104,7 +104,7 @@
 - buzzer_control()  
 	->  PB5(OCRA)  
 
-- interrupt button()
+- interrupt button()  
 	->  PD0  
 
 -------------------------------------------------------------------
