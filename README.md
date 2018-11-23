@@ -1,4 +1,4 @@
-# EQIN_Alarm
+﻿# EQIN_Alarm
 
 -------------------------------------------------------------------
 
@@ -89,18 +89,23 @@
 
 ## Pin placement
 - control_value_analysis()  
-	->  
+	->  x축 = PF0
+	->  y축 = PF1
+	->  z축 = PF2
   
 - lcd_control()  
-	->  
+	->  PE0~7  
   
 - led_control()  
-	->	
+	->  R(Red) = PC0
+	->  G(Green) = PC1
+	->  B(Blue) = PC2 	
   
 - buzzer_control()  
-	->  
-  
-!! 추가적인 AVR 포트는 구성 및 buzzer pwm은 추후 상의를 통해 결정할 것임 
+	->  PB5(OCRA)
+
+- interrupt button()
+	->  PD0
 
 -------------------------------------------------------------------
 
