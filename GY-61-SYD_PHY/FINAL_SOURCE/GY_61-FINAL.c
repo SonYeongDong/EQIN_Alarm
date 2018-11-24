@@ -1,5 +1,5 @@
 /*
- * EQIN_Alarm_GY-61.c
+ * EQIN_Alarm_GY-61-FINAL.c
  *
  * Created: 2018-11-23 오후 11:02:37
  * Author : SYD_PHY
