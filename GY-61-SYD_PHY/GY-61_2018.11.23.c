@@ -2,7 +2,7 @@
  * EQIN_Alarm_GY-61.c
  *
  * Created: 2018-11-23 오후 11:02:37
- * Author : dsm2017
+ * Author : SYD_PHY
  */ 
 
 #define F_CPU 16000000UL
