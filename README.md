@@ -124,19 +124,19 @@ int judgment_flag = 0; // 평상시(0), 지진(1), 층간소음(2) 판단 플래
 int eq_max = 0; // 3번이상 검출시 int judgment_flag = 1
 int in_max = 0; // 3번이상 검출시 int judgment_flag = 2
 
-int control_value_analysis(void)
-int lcd_control(void)
-int led_control(void)	
-int buzzer_control(void)
+int control_value_analysis(void);
+int lcd_control(void);
+int led_control(void);	
+int buzzer_control(void);
 
 int main(void)
 {
 	while(1)
 	{
-		control_value_analysis()
-		lcd_control()
-		led_control()	
-		buzzer_control()
+		control_value_analysis();
+		led_control();
+		buzzer_control();
+		lcd_control();
 	}
 	return 0;
 }
