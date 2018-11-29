@@ -41,10 +41,10 @@
 - int in_max 
 // 3번이상 검출시 int judgment_flag = 2
 
--int in_save
+- int in_save
 //층간소음이 발생할 당시의 in_persent를 저장
 
--int in_save_flag
+- int in_save_flag
 //in_save를 한번만 하기 위한 플래그
 
 #### 지역변수
@@ -54,7 +54,7 @@
 	->  
   
 - lcd_control()  
-	->   int eq_i=0;
+	->   int eq_i=0;  
 	->   char buf[100];
   
 - led_control()  
