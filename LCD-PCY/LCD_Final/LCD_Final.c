@@ -88,71 +88,43 @@ void busy(void)
 }
 
 int in_persent = 60;
-int judgment_flag = 2;
+int judgment_flag = 0;
 int in_save_flag = 0;
 int in_save;
-
-
+int eq_i=0;
 void lcd_control()
 {
 	DDRC = 0xff;
-	int eq_i=0;
+	COMMAND(ALLCLR);
 	char buf[100];
 	
-	LCD_INIT();
+
 	if(judgment_flag == 0){
-		if(in_persent>=0 && in_persent < 10)
-		{
-			sprintf(buf,"%s%d%c","NOMAL         ",in_persent,'%');
+			LCD_String("NOMAL MODE!");
+			COMMAND(LINE);
+			sprintf(buf,"%d%c",in_persent,'%');
 			LCD_String(buf);
-		}
-		else
-		{
-			sprintf(buf,"%s%d%c","NOMAL        ",in_persent,'%');
-			LCD_String(buf);
-			
-		}
 	}
 	else if(judgment_flag == 1)
 	{
-		eq_i = 0;
-		LCD_INIT();
-		LCD_String("Earth Quake!!");
-		COMMAND(0x08);
-		_delay_ms(300);
-		COMMAND(0x0c);
-		_delay_ms(300);
-		COMMAND(0x08);
-		_delay_ms(300);
-		COMMAND(0x0c);
-		_delay_ms(300);
-		COMMAND(0x08);
-		_delay_ms(300);
-		COMMAND(0x0c);
-		_delay_ms(300);
-		COMMAND(0x08);
-		_delay_ms(300);
-		COMMAND(0x0c);
-		_delay_ms(300);
-		COMMAND(0x08);
-		_delay_ms(300);
-		COMMAND(0x0c);
-		_delay_ms(300);
-		LCD_INIT();
-		LCD_String("1. Hide under the Desk!");
-		COMMAND(LINE);
-		LCD_String("2. stop that run to no building.");
-		_delay_ms(500);
-		while(1){
-			if(eq_i == 24 ){
-				break;
-			}
-			COMMAND(0x18);
-			_delay_ms(300);
-			eq_i++;
-		}
-
 		
+		if(eq_i == 0){
+			COMMAND(ALLCLR);
+			LCD_String("Earth Quake!!");
+			for(eq_i = 0; eq_i<5; eq_i++){
+				COMMAND(0x08);
+				_delay_ms(300);
+				COMMAND(0x0c);
+				_delay_ms(300);
+			}
+			
+			LCD_String("1. Hide under the Desk!");
+			COMMAND(LINE);
+			LCD_String("2. stop that run to no building.");
+		}
+		_delay_ms(500);
+		COMMAND(0x18);
+		_delay_ms(300);
 	}
 	else
 	{
@@ -160,21 +132,18 @@ void lcd_control()
 			in_save_flag ++;
 			in_save = in_persent;
 		}
-		
 		LCD_String("interfloor noise!");
 		COMMAND(LINE);
 		sprintf(buf,"%d%c",in_save,'%');
 		LCD_String(buf);
-		
 	}
 }
 int main(void)
 {
-
+	LCD_INIT();
     while (1) 
     {
 		lcd_control();
-		
     }
 }
 
