@@ -54,7 +54,7 @@
 	->  
   
 - lcd_control()  
-	->   int eq_i=0;  
+	->   int eq_i;  
 	->   char buf[100];
   
 - led_control()  
