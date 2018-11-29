@@ -88,12 +88,15 @@ void busy(void)
 }
 
 int in_persent = 60;
-int judgment_flag = 1;
+int judgment_flag = 2;
+int in_save_flag = 0;
+int in_save;
+
 
 void lcd_control()
 {
 	DDRC = 0xff;
-	int in_temp;
+	int eq_i=0;
 	char buf[100];
 	
 	LCD_INIT();
@@ -112,17 +115,57 @@ void lcd_control()
 	}
 	else if(judgment_flag == 1)
 	{
-		LCD_String("Hide under the table.  Ane Then When an earthquake stops, protect your head and evacuate to a place where there are no buildings.  ");
-		COMMAND(0x18);
-		_delay_ms(1000);
+		eq_i = 0;
+		LCD_INIT();
+		LCD_String("Earth Quake!!");
+		COMMAND(0x08);
+		_delay_ms(300);
+		COMMAND(0x0c);
+		_delay_ms(300);
+		COMMAND(0x08);
+		_delay_ms(300);
+		COMMAND(0x0c);
+		_delay_ms(300);
+		COMMAND(0x08);
+		_delay_ms(300);
+		COMMAND(0x0c);
+		_delay_ms(300);
+		COMMAND(0x08);
+		_delay_ms(300);
+		COMMAND(0x0c);
+		_delay_ms(300);
+		COMMAND(0x08);
+		_delay_ms(300);
+		COMMAND(0x0c);
+		_delay_ms(300);
+		LCD_INIT();
+		LCD_String("1. Hide under the Desk!");
+		COMMAND(LINE);
+		LCD_String("2. stop that run to no building.");
+		_delay_ms(500);
+		while(1){
+			if(eq_i == 24 ){
+				break;
+			}
+			COMMAND(0x18);
+			_delay_ms(300);
+			eq_i++;
+		}
 
+		
 	}
 	else
 	{
+		if(in_save_flag == 0) {
+			in_save_flag ++;
+			in_save = in_persent;
+		}
+		
 		LCD_String("interfloor noise!");
 		COMMAND(LINE);
-		sprintf(buf,"%d%c",in_persent,'%');
+		sprintf(buf,"%d%c",in_save,'%');
 		LCD_String(buf);
+		
 	}
 }
 int main(void)
@@ -131,6 +174,7 @@ int main(void)
     while (1) 
     {
 		lcd_control();
+		
     }
 }
 
