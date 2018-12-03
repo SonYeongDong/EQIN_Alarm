@@ -19,44 +19,44 @@ void COMMAND(unsigned char byte)
 {
 	_delay_ms(2);
 	
-	PORTC = byte & 0xf0;
-	PORTC &= 0b11111100;
+	PORTE = byte & 0xf0;
+	PORTE &= 0b11111100;
 	
 	_delay_us(1);
-	PORTC |= 0b00000100;
+	PORTE |= 0b00000100;
 	_delay_us(1);
-	PORTC &= 0b11111011;
-	PORTC = (byte << 4) & 0xf0;
-	PORTC &= 0b11111100;
+	PORTE &= 0b11111011;
+	PORTE = (byte << 4) & 0xf0;
+	PORTE &= 0b11111100;
 	_delay_us(1);
-	PORTC |= 0b00000100;
+	PORTE |= 0b00000100;
 	_delay_us(1);
-	PORTC &= 0b11111011;
+	PORTE &= 0b11111011;
 }
 
 void DATA(unsigned char byte)
 {
 	_delay_ms(2);
 	
-	PORTC = byte & 0xf0;
+	PORTE = byte & 0xf0;
 	
-	PORTC |= 0b00000001;
-	PORTC &= 0b11111101;
+	PORTE |= 0b00000001;
+	PORTE &= 0b11111101;
 	_delay_us(1);
-	PORTC |= 0b00000100;
+	PORTE |= 0b00000100;
 	_delay_us(1);
-	PORTC &= 0b11111011;
+	PORTE &= 0b11111011;
 	
-	PORTC = (byte << 4) & 0xf0;
+	PORTE = (byte << 4) & 0xf0;
 	
-	PORTC |= 0b00000001;
+	PORTE |= 0b00000001;
 	
-	PORTC &= 0b11111101;
+	PORTE &= 0b11111101;
 	
 	_delay_us(1);
-	PORTC |= 0b00000100;
+	PORTE |= 0b00000100;
 	_delay_us(1);
-	PORTC &= 0b11111011;
+	PORTE &= 0b11111011;
 }
 
 void LCD_INIT(void)
@@ -88,18 +88,19 @@ void busy(void)
 }
 
 int in_persent = 60;
-int judgment_flag = 0;
+int judgment_flag = 1;
 int in_save_flag = 0;
 int in_save;
 int eq_i=0;
 void lcd_control()
 {
-	DDRC = 0xff;
-	COMMAND(ALLCLR);
+	DDRE = 0xff;
+	
 	char buf[100];
 	
 
 	if(judgment_flag == 0){
+			COMMAND(ALLCLR);
 			LCD_String("NOMAL MODE!");
 			COMMAND(LINE);
 			sprintf(buf,"%d%c",in_persent,'%');
@@ -117,17 +118,19 @@ void lcd_control()
 				COMMAND(0x0c);
 				_delay_ms(300);
 			}
-			
+			COMMAND(ALLCLR);
 			LCD_String("1. Hide under the Desk!");
 			COMMAND(LINE);
 			LCD_String("2. stop that run to no building.");
+			_delay_ms(500);
 		}
-		_delay_ms(500);
+		
 		COMMAND(0x18);
 		_delay_ms(300);
 	}
 	else
 	{
+		COMMAND(ALLCLR);
 		if(in_save_flag == 0) {
 			in_save_flag ++;
 			in_save = in_persent;

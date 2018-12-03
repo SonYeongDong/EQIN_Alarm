@@ -47,6 +47,8 @@
 - int in_save_flag
 //in_save를 한번만 하기 위한 플래그
 
+- int eq_i;
+//Delay를 덜 쓰면서 shift하기 위한 변수
 #### 지역변수
 - 함수별 지역변수는 개발하면서 추가바람!!
 
@@ -54,7 +56,6 @@
 	->  
   
 - lcd_control()  
-	->   int eq_i;  
 	->   char buf[100];
   
 - led_control()  
